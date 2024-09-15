@@ -93,27 +93,42 @@ footer p {
 /* Game Item */
 .game-item {
     display: flex;
-    align-items: flex-start; /* Align items at the top */
+    align-items: center; /* Align items vertically */
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid #ddd;
 }
 
 .game-item img {
-    max-width: 100px; /* Adjust size for better visibility */
+    max-width: 100px; /* Adjust size */
     border-radius: 8px;
-    margin-right: 20px; /* Spacing between image and text */
+    margin-right: 20px;
 }
 
 .game-item .game-info {
-    flex-grow: 1; /* Make the info take up remaining space */
+    flex-grow: 1;
+    display: flex;
+    align-items: center; /* Center the title vertically */
 }
 
 .game-item h2 {
-    margin: 0 0 10px 0;
-    font-size: 1.3em;
-    color: #333;
+    margin: 0;
 }
+
+/* Game Title Styling */
+.game-item h2 a {
+    text-decoration: none; /* Remove the underline */
+    color: #333; /* Set to a dark color for better readability */
+    font-size: 1.5em; /* Increase font size */
+    font-weight: bold; /* Make the title bold */
+    transition: color 0.3s ease; /* Add a smooth transition for color */
+}
+
+.game-item h2 a:hover {
+    color: #007bff; /* Change color on hover (optional) */
+    text-decoration: underline; /* Optionally add underline on hover */
+}
+
 
 .game-item p {
     margin: 0;
