@@ -35,8 +35,9 @@ def igdb_request(endpoint, query):
     return response.json()
 
 # Search Games
-def search_games(query):
-    query = f'search "{query}*"; fields name,cover.url,summary; limit 10;'
+def search_games(query, page=1, per_page=10):
+    offset = (page - 1) * per_page
+    query = f'search "{query}"; fields name,cover.url,summary; limit {per_page}; offset {offset};'
     return igdb_request('games', query)
 
 # Routes
@@ -47,8 +48,11 @@ def index():
 @app.route('/search', methods=['GET'])
 def search():
     query = request.args.get('query')
-    search_results = search_games(query)
-    return render_template('search_results.html', title='Search Results', results=search_results)
+    page = request.args.get('page', default=1, type=int)
+    per_page = 10  # Adjust the number of results per page
+    search_results = search_games(query, page=page, per_page=per_page)
+    return render_template('search_results.html', title='Search Results', results=search_results, query=query, page=page)
+
 
 @app.route('/game/<int:game_id>')
 def game_detail(game_id):
