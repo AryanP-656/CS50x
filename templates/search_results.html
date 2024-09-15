@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="search-results">
+    <h1>Search Results</h1>
+    {% if results %}
+        <ul>
+            {% for game in results %}
+                <li class="game-item">
+                    <a href="{{ url_for('game_detail', game_id=game.id) }}">
+                        <h2>{{ game.name }}</h2>
+                        {% if game.cover %}
+                            <img src="{{ game.cover.url }}" alt="{{ game.name }} cover">
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No games found. Please try a different search term.</p>
+    {% endif %}
+</section>
+{% endblock %}

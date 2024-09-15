@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="game-detail">
+    <h1>{{ game.name }}</h1>
+    {% if game.cover %}
+        <img src="{{ game.cover.url }}" alt="{{ game.name }} cover">
+    {% endif %}
+    {% if game.summary %}
+        <p>{{ game.summary }}</p>
+    {% endif %}
+    
+    {% if game.genres %}
+        <h3>Genres:</h3>
+        <ul>
+            {% for genre in game.genres %}
+                <li>{{ genre.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    {% if game.platforms %}
+        <h3>Platforms:</h3>
+        <ul>
+            {% for platform in game.platforms %}
+                <li>{{ platform.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    {% if game.release_dates %}
+        <h3>Release Date:</h3>
+        <p>{{ game.release_dates[0].human }}</p>
+    {% endif %}
+</section>
+{% endblock %}
