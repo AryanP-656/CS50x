@@ -4,9 +4,9 @@ import os
 
 app = Flask(__name__)
 
-# Client credentials
-CLIENT_ID = os.getenv('IGDB_CLIENT_ID', '76w5hvlmx45sguz4wh52n19qkyy9sp')
-CLIENT_SECRET = os.getenv('IGDB_CLIENT_SECRET', '5hshzpma6v75dqi5ycgdcluzaygxt2')
+#Credentials
+CLIENT_ID = os.getenv('IGDB_CLIENT_ID', '') #Your IGBD Client ID
+CLIENT_SECRET = os.getenv('IGDB_CLIENT_SECRET', '') #Your IGDB Client Secret
 
 # Function to get access token
 def get_access_token():
