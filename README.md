@@ -1,6 +1,5 @@
 # Video Game Database
 
-## Video Demo: https://youtu.be/JP1mZYvHqRA?si=oDJl0E3evK9agm_v
 
 ## Description:
 
