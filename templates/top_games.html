@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block content %}
+<section class="search-results">
+  <h1>Top Rated Games</h1>
+  {% if games %}
+  <ul>
+    {% for game in games %}
+    <li class="game-item">
+      <a href="{{ url_for('game_detail', game_id=game.id) }}" class="game-link">
+        {% if game.cover %}
+        <img src="{{ game.cover.url }}" alt="{{ game.name }} cover" />
+        {% else %}
+        <img
+          src="{{ url_for('static', filename='images/no-cover.jpg') }}"
+          alt="No cover available"
+        />
+        {% endif %}
+        <div class="game-info">
+          <h2>{{ game.name }}</h2>
+          {% if game.rating %}
+          <span class="rating"
+            >Rating: {{ "%.1f"|format(game.rating|float/10) }}/10</span
+          >
+          {% endif %} {% if game.release_dates and game.release_dates[0] %}
+          <span class="release-year">
+            Released: {{ game.release_dates[0].human }}
+          </span>
+          {% endif %}
+        </div>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No games found.</p>
+  {% endif %}
+</section>
+{% endblock %}

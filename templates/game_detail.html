@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="search-results">
+    <div class="game-detail-container">
+        <div class="game-header">
+            <h1>{{ game.name }}</h1>
+        </div>
+        
+        <div class="game-content">
+            <div class="game-image">
+                {% if game.cover %}
+                    <img src="{{ game.cover.url|replace('t_thumb', 't_720p') }}" alt="{{ game.name }} cover">
+                {% endif %}
+            </div>
+            
+            <div class="game-info">
+                {% if game.summary %}
+                    <div class="game-summary">
+                        <h2>About the Game</h2>
+                        <p>{{ game.summary }}</p>
+                    </div>
+                {% endif %}
+                
+                <div class="game-metadata">
+                    {% if game.genres %}
+                        <div class="metadata-section">
+                            <h3>Genres</h3>
+                            <div class="tags">
+                                {% for genre in game.genres %}
+                                    <span class="tag">{{ genre.name }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                    
+                    {% if game.platforms %}
+                        <div class="metadata-section">
+                            <h3>Platforms</h3>
+                            <div class="tags">
+                                {% for platform in game.platforms %}
+                                    <span class="tag">{{ platform.name }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                    
+                    {% if game.release_dates %}
+                        <div class="metadata-section">
+                            <h3>Release Date</h3>
+                            <span class="release-date">{{ game.release_dates[0].human }}</span>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

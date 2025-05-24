@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %}
+<section class="game-search">
+  <form action="{{ url_for('search') }}" method="GET">
+    <input type="text" name="query" placeholder="Search for a game..." />
+    <button type="submit">Search</button>
+  </form>
+</section>
+
+<section class="game-list">
+  <h1>Video Game Database</h1>
+  <p>Search for your favorite games above!</p>
+</section>
+{% endblock %}
