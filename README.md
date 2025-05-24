@@ -1,7 +1,5 @@
 # Video Game Database
 
-## Video Demo: https://youtu.be/JP1mZYvHqRA?si=oDJl0E3evK9agm_v
-
 ## Description:
 
 The Video Game database is a web application that allows you to find details about any video game you desire. You can also check out the top and trending games on the website. The project is built mainly using Flask and the IGDB API.
